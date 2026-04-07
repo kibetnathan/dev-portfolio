@@ -1,0 +1,181 @@
+---
+const skills = ['React', 'PHP(Laravel)', 'Node.js', 'TypeScript', 'PostgreSQL', 'Astro', 'C', 'Supabase', 'Firebase'];
+---
+
+<!-- Hero Section -->
+<section class="relative min-h-screen px-8 py-16 bg-dark overflow-hidden">
+
+  <!-- Background Elements -->
+  <!-- Giant NK letterform (faded, Reluxe-style) -->
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 font-display text-[28rem] leading-none text-light/[0.02] select-none pointer-events-none tracking-tighter">
+    NK
+  </div>
+  
+  <!-- Floating red sphere (EnDasmu inspo) -->
+  <div class="absolute top-32 right-1/4 w-72 h-72 bg-primary/20 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
+  
+  <!-- Hazard stripe accent (Visha DNA) -->
+  <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent"></div>
+
+  <!-- Content Grid -->
+  <div class="relative z-10 max-w-7xl mx-auto grid grid-cols-12 gap-6 mt-20">
+
+    <!-- Left: Status + Name + Description -->
+    <div class="col-span-7 flex flex-col gap-8">
+      
+      <!-- Status Badge -->
+      <div class="flex items-center gap-2.5 w-fit bg-accent/15 border border-accent/30 text-accent text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-accent animate-pulse shadow-lg shadow-accent/50"></span>
+        Available for Work
+      </div>
+
+      <!-- Name (Bebas Neue brutalist treatment) -->
+      <div>
+        <p class="text-light/20 text-[0.65rem] tracking-[0.4em] uppercase font-bold mb-3 pl-1">Full Stack Developer</p>
+        <h1 class="font-display leading-[0.85] select-none">
+          <span class="block text-[9rem] text-primary font-black tracking-tight">NATHAN</span>
+          <span class="block text-[5.5rem] text-light font-black tracking-[0.15em] -mt-4">KIBET</span>
+        </h1>
+      </div>
+
+      <!-- Bio -->
+      <div class="max-w-md space-y-3">
+        <p class="text-light/70 text-lg leading-relaxed">
+          Building <span class="text-primary font-semibold">scalable web solutions</span> with clean architecture.
+          Strong focus on visual development, documentation, and adapting fast to new tooling.
+        </p>
+        
+        <!-- Skills Pills -->
+        <div class="flex flex-wrap gap-2 pt-2">
+          {skills.map(skill => (
+            <span class="bg-light/5 border border-light/10 text-secondary text-sm px-4 py-1.5 rounded-lg font-semibold hover:border-secondary/40 hover:bg-light/10 transition-all cursor-default">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex items-center gap-4 pt-4">
+        <a
+          href="#contact"
+          class="inline-flex items-center gap-3 bg-primary text-dark px-8 py-4 rounded-2xl text-sm font-bold hover:bg-primary/90 transition-all shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-0.5 group"
+        >
+          Get in Touch
+          <span class="text-lg leading-none group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+        <a
+          href="/cv.pdf"
+          download
+          class="inline-flex items-center gap-2 border-2 border-light/15 text-light/70 hover:text-light hover:border-light/40 px-7 py-4 rounded-2xl text-sm font-bold transition-all hover:bg-light/5"
+        >
+          Resume
+          <span class="text-xs opacity-60">↗</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Right: Bento Grid (Jon Daniel inspo) -->
+    <div class="col-span-5 grid grid-cols-2 grid-rows-3 gap-4 h-[600px]">
+      
+      <!-- Profile Card (spans 2 rows) -->
+      <div class="col-span-2 row-span-2 bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 rounded-3xl p-6 flex flex-col justify-between overflow-hidden relative group">
+        <!-- Photo -->
+        <div class="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
+          <img
+            src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?fit=crop&w=600&q=80"
+            alt="Nathan Kibet"
+            class="w-full h-full object-cover object-top grayscale"
+          />
+        </div>
+        
+        <div class="relative z-10">
+          <p class="text-light/30 text-xs uppercase tracking-widest font-bold mb-1">Location</p>
+          <p class="text-light text-lg font-semibold">Nairobi, Kenya 🇰🇪</p>
+        </div>
+        
+        <div class="relative z-10">
+          <p class="text-light/30 text-xs uppercase tracking-widest font-bold mb-2">Contact</p>
+          <p class="text-light/80 text-sm font-mono">kibetnat@gmail.com</p>
+        </div>
+      </div>
+
+      <!-- Tech Stack Card -->
+      <div class="bg-secondary/10 border border-secondary/20 rounded-3xl p-5 flex flex-col justify-between">
+        <p class="text-light/30 text-[0.65rem] uppercase tracking-widest font-bold">Tech Stack</p>
+        <div class="grid grid-cols-3 gap-3">
+          {[
+            { name: 'React', slug: 'react' },
+            { name: 'TypeScript', slug: 'typescript' },
+            { name: 'Node.js', slug: 'nodedotjs' },
+            { name: 'PostgreSQL', slug: 'postgresql' },
+            { name: 'Astro', slug: 'astro' },
+            { name: 'Tailwind CSS', slug: 'tailwindcss' },
+          ].map(tool => (
+            <div class="flex items-center justify-center p-2 bg-light/5 rounded-xl border border-light/10 hover:border-secondary/40 transition-all group aspect-square" title={tool.name}>
+              <img 
+                src={`https://cdn.simpleicons.org/${tool.slug}/299f93`} 
+                alt={tool.name}
+                class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Projects Card (clickable) -->
+      <div class="bg-light/5 border border-light/10 rounded-3xl p-5 flex flex-col justify-between hover:bg-light/10 hover:border-light/20 transition-all cursor-pointer group">
+        <p class="text-light/30 text-[0.65rem] uppercase tracking-widest font-bold">Portfolio</p>
+        <div class="flex items-end justify-between">
+          <div>
+            <p class="text-light text-2xl font-black leading-none mb-1 uppercase tracking-tight">Crafted</p>
+            <p class="text-light/60 text-xs font-semibold uppercase tracking-wide">Projects</p>
+          </div>
+          <span class="text-light/40 group-hover:text-light group-hover:translate-x-1 transition-all">→</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Quick Links Footer -->
+  <div class="relative z-10 max-w-7xl mx-auto flex items-center gap-8 pt-16 mt-16 border-t border-light/[0.08]">
+    <span class="text-light/20 text-[0.65rem] uppercase tracking-[0.3em] font-bold">Quick Links</span>
+    <div class="flex gap-6">
+      {[
+        { label: 'Projects', href: '#projects' },
+        { label: 'Blog', href: '/blog' },
+        { label: 'GitHub', href: 'https://github.com' },
+        { label: 'LinkedIn', href: 'https://linkedin.com' },
+      ].map(link => (
+        <a href={link.href} class="group flex items-center gap-1.5 text-light/40 hover:text-secondary text-sm font-semibold transition-colors">
+          {link.label}
+          <span class="text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all">↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .signature {
+    display: inline-block;
+    transform: rotate(-3deg);
+    position: relative;
+  }
+  .signature::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 6px;
+    right: 10px;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 9999px;
+    opacity: 0.4;
+    transform: rotate(2deg);
+  }
+</style>

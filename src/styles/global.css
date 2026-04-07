@@ -1,1 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@700&family=Syne:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #e12826;
+  --color-secondary: #299f93;
+  --color-accent: #f0a500;
+  --color-light: #f7f9fb;
+  --color-dark: #0e1117;
+  --font-signature: 'Dancing Script', cursive;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Syne', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}
