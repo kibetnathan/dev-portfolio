@@ -117,12 +117,12 @@ const skills = ['React', 'PHP(Laravel)', 'Node.js', 'TypeScript', 'PostgreSQL', 
         <p class="text-light/30 text-[0.65rem] uppercase tracking-widest font-bold">Tech Stack</p>
         <div class="grid grid-cols-3 gap-3">
           {[
+            { name: 'JavaScript', slug: 'javascript' },
             { name: 'React', slug: 'react' },
-            { name: 'TypeScript', slug: 'typescript' },
-            { name: 'Node.js', slug: 'nodedotjs' },
+            { name: 'Python', slug: 'python' },
+            { name: 'Django', slug: 'django' },
             { name: 'PostgreSQL', slug: 'postgresql' },
             { name: 'Astro', slug: 'astro' },
-            { name: 'Tailwind CSS', slug: 'tailwindcss' },
           ].map(tool => (
             <div class="flex items-center justify-center p-2 bg-light/5 rounded-xl border border-light/10 hover:border-secondary/40 transition-all group aspect-square" title={tool.name}>
               <img 
