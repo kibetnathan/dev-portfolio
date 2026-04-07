@@ -97,7 +97,18 @@ const skills = ['React', 'PHP(Laravel)', 'Node.js', 'TypeScript', 'PostgreSQL', 
         
         <div class="relative z-10">
           <p class="text-light/30 text-xs uppercase tracking-widest font-bold mb-2">Contact</p>
-          <p class="text-light/80 text-sm font-mono">kibetnat@gmail.com</p>
+          <button 
+            id="reveal-email-hero"
+            class="group/email flex items-center gap-2 text-light/80 text-sm font-mono hover:text-primary transition-colors cursor-pointer"
+          >
+            <span id="email-display-hero">na...[at]...dev</span>
+            <span id="reveal-icon-hero" class="transition-transform duration-300 group-hover/email:scale-110">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-primary/50 group-hover/email:text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </span>
+          </button>
         </div>
       </div>
 
@@ -179,3 +190,54 @@ const skills = ['React', 'PHP(Laravel)', 'Node.js', 'TypeScript', 'PostgreSQL', 
     transform: rotate(2deg);
   }
 </style>
+
+<script>
+  const btnHero = document.getElementById('reveal-email-hero');
+  const emailDisplayHero = document.getElementById('email-display-hero');
+  const revealIconHero = document.getElementById('reveal-icon-hero');
+  
+  const u = ["n", "a", "t", "h", "a", "n"].join("");
+  const d = ["k", "i", "g", "e", "n", "n", ".", "d", "e", "v"].join(""); 
+
+  let revealedHero = false;
+
+  btnHero?.addEventListener('click', () => {
+    const fullEmail = `${u}@${d}`;
+    
+    if (!revealedHero) {
+      if (emailDisplayHero) {
+        emailDisplayHero.innerText = fullEmail;
+        emailDisplayHero.classList.add('text-primary', 'font-bold');
+      }
+      
+      if (revealIconHero) {
+        revealIconHero.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        `;
+      }
+
+      navigator.clipboard.writeText(fullEmail);
+      revealedHero = true;
+
+      setTimeout(() => {
+        if (emailDisplayHero) {
+          emailDisplayHero.innerText = "na...[at]...dev";
+          emailDisplayHero.classList.remove('text-primary', 'font-bold');
+        }
+        if (revealIconHero) {
+          revealIconHero.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-primary/50 group-hover/email:text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          `;
+        }
+        revealedHero = false;
+      }, 5000);
+    } else {
+      navigator.clipboard.writeText(fullEmail);
+    }
+  });
+</script>

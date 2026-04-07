@@ -1,0 +1,249 @@
+---
+const topSkills = [
+  { name: 'JavaScript', slug: 'javascript', color: 'F7DF1E' },
+  { name: 'React/Preact', slug: 'react', color: '61DAFB' },
+  { name: 'Python', slug: 'python', color: '3776AB' },
+  { name: 'Django/DRF', slug: 'django', color: '092E20' },
+  { name: 'PostgreSQL', slug: 'postgresql', color: '4169E1' },
+];
+
+const otherSkills = [
+  { name: 'Astro', slug: 'astro', color: 'FF5D01' },
+  { name: 'TypeScript', slug: 'typescript', color: '3178C6' },
+  { name: 'C', slug: 'c', color: 'A8B9CC' },
+  { name: 'PHP', slug: 'php', color: '777BB4' },
+  { name: 'Laravel', slug: 'laravel', color: 'FF2D20' },
+  { name: 'Node.js', slug: 'nodedotjs', color: '5FA04E' },
+  { name: 'Bash', slug: 'gnubash', color: '4EAA25' },
+  { name: 'Redux', slug: 'redux', color: '764ABC' },
+  { name: 'Zustand', slug: 'react', color: '61DAFB' }, // No official icon, using React
+  { name: 'Canva', slug: 'canva', color: '00C4CC' },
+  { name: 'Affinity', slug: 'affinity', color: '222222' },
+  { name: 'Krita', slug: 'krita', color: '35A6FF' },
+  { name: 'Figma', slug: 'figma', color: 'F24E1E' },
+  { name: 'Vim', slug: 'vim', color: '019733' },
+  { name: 'SQL', slug: 'sqlite', color: '003B57' },
+];
+---
+
+<section id="about" class="relative py-32 bg-dark overflow-hidden">
+  
+  <!-- Background Accents -->
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-32"></div>
+  <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] -ml-64 -mb-32"></div>
+
+  <div class="max-w-7xl mx-auto px-8 relative z-10">
+    <div class="grid grid-cols-12 gap-16 items-center">
+      
+      <!-- Left: Picture & Layered Effect -->
+      <div class="col-span-12 lg:col-span-5 relative group">
+        <!-- Background Layered Card 1 -->
+        <div class="absolute -inset-4 bg-primary/20 rounded-3xl rotate-3 scale-105 blur-sm group-hover:rotate-6 transition-transform duration-500"></div>
+        <!-- Background Layered Card 2 -->
+        <div class="absolute -inset-4 border-2 border-light/10 rounded-3xl -rotate-2 group-hover:-rotate-4 transition-transform duration-500"></div>
+        
+        <!-- Main Image Container -->
+        <div class="relative rounded-2xl overflow-hidden aspect-[4/5] shadow-2xl border border-light/20 bg-dark">
+          <img 
+            src="/portrait.png" 
+            alt="Nathan Kibet" 
+            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
+          />
+          <!-- Decorative Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent opacity-60"></div>
+          
+          <!-- Floating Label -->
+          <div class="absolute bottom-6 left-6 right-6 p-4 bg-dark/60 backdrop-blur-md border border-light/10 rounded-xl">
+             <p class="font-display text-2xl text-light uppercase tracking-wide">Nathan Kibet</p>
+             <p class="text-primary text-[0.65rem] font-bold uppercase tracking-[0.2em]">Full Stack Engineer</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Content & Layered Cards -->
+      <div class="col-span-12 lg:col-span-7 relative">
+        
+        <!-- Layered Cards behind the text -->
+        <div class="absolute -top-10 -right-10 w-64 h-64 border border-primary/20 rounded-full opacity-20 animate-pulse"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[120%] bg-light/[0.02] -rotate-1 rounded-[40px] border border-light/5 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[105%] h-[110%] bg-light/[0.01] rotate-1 rounded-[40px] border border-light/5 pointer-events-none"></div>
+
+        <div class="relative space-y-10">
+          
+          <!-- Professional Section -->
+          <div class="space-y-4">
+            <h2 class="font-display text-7xl text-light leading-none uppercase tracking-tighter">
+              Crafting <br />
+              <span class="text-primary">Digital Excellence</span>
+            </h2>
+            <div class="h-1.5 w-24 bg-primary rounded-full"></div>
+            <p class="text-light/80 text-xl leading-relaxed font-medium">
+              I am a results-driven Full Stack Developer with a deep-seated passion for architecting 
+              scalable, high-performance web applications. My expertise lies in bridging the gap between 
+              complex backend logic and intuitive, visually stunning frontend experiences.
+            </p>
+            <p class="text-light/60 text-lg leading-relaxed">
+              With a strong foundation in <span class="text-secondary font-semibold">React, Node.js, and Cloud Infrastructure</span>, 
+              I specialize in building tools that aren't just functional, but are a joy to use. I thrive in 
+              environments that challenge me to solve intricate problems and push the boundaries of modern web standards.
+            </p>
+          </div>
+
+          <!-- Interests & Hobbies Section -->
+          <div class="pt-6 border-t border-light/10">
+            <h3 class="font-display text-3xl text-light uppercase tracking-tight mb-4 flex items-center gap-3">
+               Beyond the Code
+               <span class="flex-grow h-px bg-light/10"></span>
+            </h3>
+            <div class="grid grid-cols-2 gap-6">
+               <div class="space-y-2">
+                  <p class="text-primary font-bold text-xs uppercase tracking-widest">Interests</p>
+                  <p class="text-light/60 text-sm leading-relaxed">
+                    Passionate about UI/UX design trends, exploring decentralized finance (DeFi), and keeping up with the latest in AI and machine learning.
+                  </p>
+               </div>
+               <div class="space-y-2">
+                  <p class="text-secondary font-bold text-xs uppercase tracking-widest">Hobbies</p>
+                  <p class="text-light/60 text-sm leading-relaxed">
+                    When I'm away from my keyboard, I'm usually hiking, experimenting with street photography, or getting lost in a good sci-fi novel.
+                  </p>
+               </div>
+            </div>
+          </div>
+
+          <!-- Skills Subsection -->
+          <div class="pt-10 border-t border-light/10 space-y-8">
+            <div>
+              <h3 class="font-display text-3xl text-light uppercase tracking-tight mb-6 flex items-center gap-3">
+                Top Expertise
+                <span class="flex-grow h-px bg-light/10"></span>
+              </h3>
+              <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {topSkills.map(skill => (
+                  <div class="bg-light/5 border border-light/10 p-4 rounded-2xl flex flex-col items-center gap-3 group hover:border-primary/50 hover:bg-primary/5 transition-all duration-300">
+                    <img 
+                      src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} 
+                      alt={skill.name}
+                      class="w-8 h-8 group-hover:scale-110 transition-transform"
+                    />
+                    <span class="text-[0.65rem] font-black uppercase tracking-widest text-light/70 group-hover:text-primary transition-colors text-center">{skill.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p class="text-light/30 text-[0.6rem] font-black uppercase tracking-[0.3em] mb-4">Tech Stack & Tools</p>
+              <div class="flex flex-wrap gap-3">
+                {otherSkills.map(skill => (
+                  <div class="flex items-center gap-2 px-4 py-2 bg-light/[0.03] border border-light/5 rounded-xl hover:border-light/20 hover:bg-light/10 transition-all group cursor-default">
+                    <img 
+                      src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`} 
+                      alt={skill.name}
+                      class="w-4 h-4 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
+                    />
+                    <span class="text-xs font-semibold text-light/40 group-hover:text-light transition-colors">{skill.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Signature/Closing -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-10 border-t border-light/10">
+             <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-full border border-light/20 flex items-center justify-center font-signature text-2xl text-accent bg-light/5">
+                  NK
+                </div>
+                <div>
+                  <p class="text-light font-bold text-sm uppercase tracking-widest">Based in Nairobi</p>
+                  <p class="text-light/30 text-[0.65rem] uppercase tracking-widest font-bold">Open for Global Opportunities</p>
+                </div>
+             </div>
+
+             <!-- Obfuscated Reveal Email -->
+             <div class="relative group">
+               <button 
+                 id="reveal-email"
+                 class="flex flex-col items-start gap-1 px-6 py-3 bg-light/5 border border-light/10 rounded-2xl hover:border-primary/50 hover:bg-light/10 transition-all duration-300 group"
+               >
+                 <span class="text-[0.6rem] text-primary font-black uppercase tracking-[0.2em] mb-1">Contact Me</span>
+                 <div class="flex items-center gap-3">
+                   <span id="email-display" class="font-mono text-light/40 text-sm tracking-wider">na...[at]...dev</span>
+                   <div id="reveal-icon" class="p-1.5 bg-primary/10 rounded-lg group-hover:bg-primary transition-colors">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-primary group-hover:text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                     </svg>
+                   </div>
+                 </div>
+                 <!-- Tooltip -->
+                 <span class="absolute -top-8 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary text-dark text-[0.6rem] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                   Click to reveal & copy
+                 </span>
+               </button>
+             </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const btn = document.getElementById('reveal-email');
+  const emailDisplay = document.getElementById('email-display');
+  const revealIcon = document.getElementById('reveal-icon');
+  
+  // Obfuscate the string slightly in code
+  const u = ["n", "a", "t", "h", "a", "n"].join("");
+  const d = ["k", "i", "g", "e", "n", "n", ".", "d", "e", "v"].join(""); 
+
+  let revealed = false;
+
+  btn?.addEventListener('click', () => {
+    const fullEmail = `${u}@${d}`;
+    
+    if (!revealed) {
+      if (emailDisplay) {
+        emailDisplay.innerText = fullEmail;
+        emailDisplay.classList.remove('text-light/40');
+        emailDisplay.classList.add('text-primary', 'font-bold');
+      }
+      
+      // Update icon to checkmark
+      if (revealIcon) {
+        revealIcon.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        `;
+      }
+
+      navigator.clipboard.writeText(fullEmail);
+      revealed = true;
+
+      // Reset after 5 seconds
+      setTimeout(() => {
+        if (emailDisplay) {
+          emailDisplay.innerText = "na...[at]...dev";
+          emailDisplay.classList.add('text-light/40');
+          emailDisplay.classList.remove('text-primary', 'font-bold');
+        }
+        if (revealIcon) {
+          revealIcon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-primary group-hover:text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          `;
+        }
+        revealed = false;
+      }, 5000);
+    } else {
+      navigator.clipboard.writeText(fullEmail);
+    }
+  });
+</script>
