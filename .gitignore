@@ -26,3 +26,7 @@ pnpm-debug.log*
 .vscode/
 
 inspos/
+
+# AI Context files
+CLAUDE.md 
+GEMINI.md 
