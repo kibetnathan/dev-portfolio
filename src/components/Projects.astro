@@ -1,0 +1,170 @@
+---
+const projects = [
+  {
+    slug: 'ocm',
+    name: 'Open Church Management',
+    subtitle: 'Zindua School Capstone · Built for Mavuno Church',
+    status: 'Alpha',
+    statusColor: 'accent',
+    inverted: false,
+    description:
+      'A full-featured church management platform covering membership records, attendance tracking, event scheduling, and contribution management. Built as an open-source capstone project and deployed for Mavuno Church.',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Open Source'],
+    link: { label: 'View on GitHub', href: 'https://github.com/nathandekibet/open-church-management', icon: 'github' },
+    visual: {
+      gradient: 'from-accent/15 via-accent/5 to-transparent',
+      monogram: 'OCM',
+      monogramColor: 'text-accent/20',
+      dotColor: 'bg-accent',
+      accentVar: 'var(--color-accent)',
+    },
+  },
+  {
+    slug: 'visha',
+    name: 'Visha',
+    subtitle: 'Thrifting & Fashion · Kenyan Market',
+    status: 'Alpha',
+    statusColor: 'primary',
+    inverted: true,
+    description:
+      'A curated thrifting and fashion discovery app for the Kenyan fashion scene. Connects buyers and sellers of pre-loved clothing in a community-driven marketplace built for local taste and culture.',
+    tags: ['Mobile App', 'Fashion', 'Kenya', 'Closed Source'],
+    link: { label: 'Visit Promo Site', href: '#', icon: 'external' },
+    visual: {
+      gradient: 'from-primary/15 via-primary/5 to-transparent',
+      monogram: 'V',
+      monogramColor: 'text-primary/20',
+      dotColor: 'bg-primary',
+      accentVar: 'var(--color-primary)',
+    },
+  },
+  {
+    slug: 'wip',
+    name: 'Work in Progress',
+    subtitle: 'Something new is cooking',
+    status: 'Coming Soon',
+    statusColor: 'secondary',
+    inverted: false,
+    description:
+      "This one isn't ready yet. Check back later — it'll be worth the wait.",
+    tags: [],
+    link: null,
+    visual: {
+      gradient: 'from-secondary/10 via-secondary/5 to-transparent',
+      monogram: '?',
+      monogramColor: 'text-secondary/20',
+      dotColor: 'bg-secondary',
+      accentVar: 'var(--color-secondary)',
+    },
+  },
+];
+---
+
+<section id="projects" class="relative bg-dark overflow-hidden">
+
+  <!-- Background glows -->
+  <div class="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2"></div>
+  <div class="absolute top-1/2 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2"></div>
+
+  <!-- Section header -->
+  <div class="relative z-10 max-w-7xl mx-auto px-8 pt-24 pb-12 flex items-end justify-between">
+    <div>
+      <p class="text-light/20 text-[0.65rem] uppercase tracking-[0.4em] font-bold mb-2">Selected Work</p>
+      <h2 class="font-display text-7xl text-light uppercase tracking-tighter leading-none">PROJECTS</h2>
+    </div>
+    <p class="text-light/30 text-sm max-w-xs text-right pb-1">
+      Things I've built — from capstone projects to side experiments.
+    </p>
+  </div>
+
+  <!-- Cards: full-width, flush, divided by horizontal borders -->
+  <div class="relative z-10 border-t border-light/[0.08]">
+    {projects.map((project) => (
+      <div class={`flex items-stretch border-b border-light/[0.08] min-h-[320px] ${project.slug === 'wip' ? 'opacity-50 hover:opacity-70 transition-opacity' : ''} ${project.inverted ? 'flex-row-reverse' : ''}`}>
+
+        <!-- Visual side -->
+        <div class={`relative w-1/2 shrink-0 bg-gradient-to-br ${project.visual.gradient} flex items-center justify-center overflow-hidden`}>
+          <!-- Dot grid -->
+          <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(247,249,251,0.05) 1px, transparent 1px); background-size: 20px 20px;"></div>
+          <!-- Monogram watermark -->
+          <span class={`absolute font-display text-[14rem] leading-none select-none pointer-events-none ${project.visual.monogramColor} tracking-tighter`}>
+            {project.visual.monogram}
+          </span>
+          <!-- Label -->
+          <div class="relative z-10 text-center px-12">
+            <p class="text-[0.6rem] uppercase tracking-[0.4em] font-bold mb-3" style={`color: ${project.visual.accentVar}`}>
+              {project.status}
+            </p>
+            <h3 class="font-display text-5xl text-light uppercase tracking-tight leading-tight">
+              {project.name}
+            </h3>
+          </div>
+        </div>
+
+        <!-- Vertical rule -->
+        <div class="w-px shrink-0 self-stretch bg-light/[0.08]"></div>
+
+        <!-- Description side -->
+        <div class="w-1/2 shrink-0 px-14 py-12 flex flex-col justify-between gap-6">
+          <div class="space-y-5">
+            <!-- Name + status -->
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-light/30 text-[0.65rem] uppercase tracking-widest font-bold mb-1.5">{project.subtitle}</p>
+                <h3 class="font-display text-5xl text-light uppercase tracking-tight leading-none">{project.name}</h3>
+              </div>
+              <span class={`shrink-0 mt-1 flex items-center gap-1.5 text-[0.6rem] font-black uppercase tracking-widest px-3 py-1.5 rounded-full border ${
+                project.statusColor === 'accent' ? 'text-accent border-accent/30 bg-accent/10' :
+                project.statusColor === 'primary' ? 'text-primary border-primary/30 bg-primary/10' :
+                'text-secondary border-secondary/30 bg-secondary/10'
+              }`}>
+                <span class={`w-1.5 h-1.5 rounded-full ${project.visual.dotColor} ${project.slug !== 'wip' ? 'animate-pulse' : ''}`}></span>
+                {project.status}
+              </span>
+            </div>
+
+            <p class="text-light/50 text-base leading-relaxed max-w-lg">{project.description}</p>
+
+            {project.tags.length > 0 && (
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map(tag => (
+                  <span class="text-light/30 border border-light/[0.08] text-xs px-3 py-1 rounded-lg font-medium">{tag}</span>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <!-- CTA -->
+          <div>
+            {project.link ? (
+              <a
+                href={project.link.href}
+                target={project.link.icon === 'external' ? '_blank' : undefined}
+                rel={project.link.icon === 'external' ? 'noopener noreferrer' : undefined}
+                class={`inline-flex items-center gap-2.5 text-sm font-bold uppercase tracking-wider transition-all group/link ${
+                  project.statusColor === 'accent' ? 'text-accent hover:text-accent/80' : 'text-primary hover:text-primary/80'
+                }`}
+              >
+                {project.link.icon === 'github' ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                )}
+                {project.link.label}
+                <span class="group-hover/link:translate-x-0.5 transition-transform">→</span>
+              </a>
+            ) : (
+              <span class="text-light/20 text-sm font-bold uppercase tracking-wider">Not yet available</span>
+            )}
+          </div>
+        </div>
+
+      </div>
+    ))}
+  </div>
+
+</section>
