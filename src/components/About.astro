@@ -1,5 +1,5 @@
 ---
-import EducationRoadmap from "./EducationRoadmap.tsx";
+import EducationRoadmap from "./EducationRoadmap.jsx";
 
 const topSkills = [
   { name: 'JavaScript', slug: 'javascript', color: 'F7DF1E' },
@@ -51,9 +51,6 @@ const otherSkills = [
             alt="Nathan Kibet" 
             class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100 object-top"
           />
-          <!-- Decorative Overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent opacity-60"></div>
-          
           <!-- Floating Label -->
           <div class="absolute bottom-6 left-6 right-6 p-4 bg-dark/60 backdrop-blur-md border border-light/10 rounded-xl">
              <p class="font-display text-2xl text-light uppercase tracking-wide">Nathan Kibet</p>
@@ -324,8 +321,8 @@ const otherSkills = [
   const revealIcon = document.getElementById('reveal-icon');
   
   // Obfuscate the string slightly in code
-  const u = ["n", "a", "t", "h", "a", "n"].join("");
-  const d = ["k", "i", "g", "e", "n", "n", ".", "d", "e", "v"].join(""); 
+  const u = ["k", "i", "b", "e", "t", "n", "a", "t"].join("");
+  const d = ["g", "m", "a", "i", "l", ".", "c", "o", "m"].join(""); 
 
   let revealed = false;
 
@@ -354,7 +351,7 @@ const otherSkills = [
       // Reset after 5 seconds
       setTimeout(() => {
         if (emailDisplay) {
-          emailDisplay.innerText = "na...[at]...dev";
+          emailDisplay.innerText = "ki...[at]...com";
           emailDisplay.classList.add('text-light/40');
           emailDisplay.classList.remove('text-primary', 'font-bold');
         }

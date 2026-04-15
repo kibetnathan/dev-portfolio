@@ -3,156 +3,134 @@ const skills = ['React', 'PHP(Laravel)', 'Node.js', 'TypeScript', 'PostgreSQL', 
 ---
 
 <!-- Hero Section -->
-<section class="relative min-h-screen px-8 py-16 bg-dark overflow-hidden">
+<section class="relative bg-dark overflow-hidden py-32">
 
   <!-- Background Elements -->
-  <!-- Giant NK letterform (faded, Reluxe-style) -->
-  <div class="absolute right-0 top-1/2 -translate-y-1/2 font-display text-[28rem] leading-none text-light/[0.02] select-none pointer-events-none tracking-tighter">
-    NK
-  </div>
-  
-  <!-- Floating red sphere (EnDasmu inspo) -->
-  <div class="absolute top-32 right-1/4 w-72 h-72 bg-primary/20 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
-  
-  <!-- Hazard stripe accent (Visha DNA) -->
+  <!-- Dot grid -->
+  <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(247,249,251,0.07) 1px, transparent 1px); background-size: 28px 28px;"></div>
+  <!-- Diagonal stripe accent -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, var(--color-primary) 0, var(--color-primary) 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
+  <!-- Red glow -->
+  <div class="absolute top-32 right-1/4 w-72 h-72 bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+  <!-- Teal glow bottom-left -->
+  <div class="absolute bottom-0 left-1/3 w-96 h-64 bg-secondary/10 rounded-full blur-[100px] pointer-events-none"></div>
+  <!-- Left stripe -->
   <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent"></div>
 
-  <!-- Content Grid -->
-  <div class="relative z-10 max-w-7xl mx-auto grid grid-cols-12 gap-6 mt-20">
+  <div class="relative z-10 max-w-7xl mx-auto px-8 grid grid-cols-12 gap-6 items-stretch">
 
-    <!-- Left: Status + Name + Description -->
-    <div class="col-span-7 flex flex-col gap-8">
-      
-      <!-- Status Badge -->
-      <div class="flex items-center gap-2.5 w-fit bg-accent/15 border border-accent/30 text-accent text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
-        <span class="w-2 h-2 rounded-full bg-accent animate-pulse shadow-lg shadow-accent/50"></span>
-        Available for Work
+    <!-- LEFT: Profile Card -->
+    <div class="col-span-4 relative">
+      <!-- Top-left corner notch -->
+      <div class="absolute top-0 left-0 w-10 h-10 bg-dark rounded-br-3xl z-20"></div>
+
+      <div class="h-full bg-gradient-to-b from-primary/20 via-primary/5 to-dark/80 border border-primary/20 rounded-3xl p-8 flex flex-col items-center gap-6 relative overflow-hidden">
+
+      <!-- Faint NK watermark -->
+      <div class="absolute -bottom-4 -right-2 font-display text-[8rem] leading-none text-primary/5 select-none pointer-events-none">NK</div>
+
+      <!-- Circular photo -->
+      <div class="w-52 h-52 rounded-full ring-4 ring-primary/40 ring-offset-4 ring-offset-dark overflow-hidden">
+        <img src="/portrait.png" alt="Nathan Kibet" class="w-full h-full object-cover object-top" />
       </div>
 
-      <!-- Name (Bebas Neue brutalist treatment) -->
-      <div>
-        <p class="text-light/20 text-[0.65rem] tracking-[0.4em] uppercase font-bold mb-3 pl-1">Full Stack Developer</p>
-        <h1 class="font-display leading-[0.85] select-none">
-          <span class="block text-[9rem] text-primary font-black tracking-tight">NATHAN</span>
-          <span class="block text-[5.5rem] text-light font-black tracking-[0.15em] -mt-4">KIBET</span>
+      <!-- Name -->
+      <div class="text-center">
+        <h1 class="font-display text-6xl text-light leading-[0.9] uppercase tracking-tight">
+          NATHAN<br><span class="text-primary">KIBET</span>
         </h1>
+        <p class="text-light/40 text-[0.65rem] tracking-[0.3em] uppercase font-bold mt-3">Full Stack Developer</p>
       </div>
 
-      <!-- Bio -->
-      <div class="max-w-md space-y-3">
-        <p class="text-light/70 text-lg leading-relaxed">
-          Building <span class="text-primary font-semibold">scalable web solutions</span> with clean architecture.
-          Strong focus on visual development, documentation, and adapting fast to new tooling.
-        </p>
-        
-        <!-- Skills Pills -->
-        <div class="flex flex-wrap gap-2 pt-2">
-          {skills.map(skill => (
-            <span class="bg-light/5 border border-light/10 text-secondary text-sm px-4 py-1.5 rounded-lg font-semibold hover:border-secondary/40 hover:bg-light/10 transition-all cursor-default">
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
+      <!-- Email reveal -->
+      <button
+        id="reveal-email-hero"
+        class="group/email w-full flex items-center justify-center gap-2 px-5 py-3 bg-light/5 border border-light/10 rounded-2xl text-light/50 hover:text-primary hover:border-primary/30 transition-all text-sm font-mono cursor-pointer"
+      >
+        <span id="email-display-hero">na...[at]...dev</span>
+        <span id="reveal-icon-hero" class="transition-transform group-hover/email:scale-110">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-primary/50 group-hover/email:text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+        </span>
+      </button>
 
       <!-- CTAs -->
-      <div class="flex items-center gap-4 pt-4">
-        <a
-          href="#contact"
-          class="inline-flex items-center gap-3 bg-primary text-dark px-8 py-4 rounded-2xl text-sm font-bold hover:bg-primary/90 transition-all shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-0.5 group"
-        >
+      <div class="flex gap-3 w-full mt-auto">
+        <a href="#contact" class="flex-1 text-center bg-primary text-dark text-xs font-black py-3 rounded-xl hover:bg-primary/90 transition-all uppercase tracking-wider shadow-lg shadow-primary/25">
           Get in Touch
-          <span class="text-lg leading-none group-hover:translate-x-1 transition-transform">→</span>
         </a>
-        <a
-          href="/cv.pdf"
-          download
-          class="inline-flex items-center gap-2 border-2 border-light/15 text-light/70 hover:text-light hover:border-light/40 px-7 py-4 rounded-2xl text-sm font-bold transition-all hover:bg-light/5"
-        >
-          Resume
-          <span class="text-xs opacity-60">↗</span>
+        <a href="/Nathan_Kibet_CV.pdf" download class="flex-1 text-center border border-light/15 text-light/60 hover:text-light hover:border-light/30 text-xs font-bold py-3 rounded-xl transition-all uppercase tracking-wider">
+          Resume ↗
         </a>
       </div>
-
+    </div>
     </div>
 
-    <!-- Right: Bento Grid (Jon Daniel inspo) -->
-    <div class="col-span-5 grid grid-cols-2 grid-rows-3 gap-4 h-[600px]">
-      
-      <!-- Profile Card (spans 2 rows) -->
-      <div class="col-span-2 row-span-2 bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 rounded-3xl p-6 flex flex-col justify-between overflow-hidden relative group">
-        <!-- Photo -->
-        <div class="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
-          <img
-            src="/portrait.png"
-            alt="Nathan Kibet"
-            class="w-full h-full object-cover object-top"
-          />
-        </div>
-        
-        <div class="relative z-10">
-          <p class="text-light/30 text-xs uppercase tracking-widest font-bold mb-1">Location</p>
-          <p class="text-light text-lg font-semibold">Nairobi, Kenya 🇰🇪</p>
-        </div>
-        
-        <div class="relative z-10">
-          <p class="text-light/30 text-xs uppercase tracking-widest font-bold mb-2">Contact</p>
-          <button 
-            id="reveal-email-hero"
-            class="group/email flex items-center gap-2 text-light/80 text-sm font-mono hover:text-primary transition-colors cursor-pointer"
-          >
-            <span id="email-display-hero">na...[at]...dev</span>
-            <span id="reveal-icon-hero" class="transition-transform duration-300 group-hover/email:scale-110">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-primary/50 group-hover/email:text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
-            </span>
-          </button>
+    <!-- RIGHT: Headline + Card Grid -->
+    <div class="col-span-8 flex flex-col gap-5">
+
+      <!-- Headline row -->
+      <div class="flex items-end justify-between">
+        <h2 class="font-display text-[9rem] leading-[0.85] text-light uppercase tracking-tighter select-none whitespace-nowrap">
+          FULL <span class="text-primary">STACK</span>
+        </h2>
+        <div class="text-right pb-2 space-y-1">
+          <p class="text-light/20 text-[0.65rem] uppercase tracking-widest font-bold">Based in</p>
+          <p class="text-light font-semibold">Nairobi, Kenya 🇰🇪</p>
+          <p class="text-light/40 text-xs">Open for Global Opportunities</p>
         </div>
       </div>
 
-      <!-- Tech Stack Card -->
-      <div class="bg-secondary/10 border border-secondary/20 rounded-3xl p-5 flex flex-col justify-between">
-        <p class="text-light/30 text-[0.65rem] uppercase tracking-widest font-bold">Tech Stack</p>
-        <div class="grid grid-cols-3 gap-3">
-          {[
-            { name: 'JavaScript', slug: 'javascript' },
-            { name: 'React', slug: 'react' },
-            { name: 'Python', slug: 'python' },
-            { name: 'Django', slug: 'django' },
-            { name: 'PostgreSQL', slug: 'postgresql' },
-            { name: 'Astro', slug: 'astro' },
-          ].map(tool => (
-            <div class="flex items-center justify-center p-2 bg-light/5 rounded-xl border border-light/10 hover:border-secondary/40 transition-all group aspect-square" title={tool.name}>
-              <img 
-                src={`https://cdn.simpleicons.org/${tool.slug}/299f93`} 
-                alt={tool.name}
-                class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      <!-- Card row -->
+      <div class="grid grid-cols-3 gap-4 flex-1">
 
-      <!-- Projects Card (clickable) -->
-      <div class="bg-light/5 border border-light/10 rounded-3xl p-5 flex flex-col justify-between hover:bg-light/10 hover:border-light/20 transition-all cursor-pointer group">
-        <p class="text-light/30 text-[0.65rem] uppercase tracking-widest font-bold">Portfolio</p>
-        <div class="flex items-end justify-between">
-          <div>
-            <p class="text-light text-2xl font-black leading-none mb-1 uppercase tracking-tight">Crafted</p>
-            <p class="text-light/60 text-xs font-semibold uppercase tracking-wide">Projects</p>
+        <!-- Bio + Skills -->
+        <div class="col-span-2 bg-light/[0.03] border border-light/10 rounded-3xl p-6 flex flex-col justify-between">
+          <p class="text-light/60 text-lg leading-relaxed">
+            Building <span class="text-primary font-semibold">scalable web solutions</span> with clean architecture.
+            Strong focus on visual development, documentation, and adapting fast to new tooling.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-4">
+            {skills.map(skill => (
+              <span class="bg-light/5 border border-light/10 text-secondary text-xs px-3 py-1.5 rounded-lg font-semibold hover:border-secondary/40 hover:bg-light/[0.07] transition-all cursor-default">
+                {skill}
+              </span>
+            ))}
           </div>
-          <span class="text-light/40 group-hover:text-light group-hover:translate-x-1 transition-all">→</span>
         </div>
-      </div>
 
+        <!-- Tech Stack -->
+        <div class="bg-secondary/10 border border-secondary/20 rounded-3xl p-5 flex flex-col gap-4">
+          <p class="text-light/30 text-[0.65rem] uppercase tracking-widest font-bold">Tech Stack</p>
+          <div class="grid grid-cols-3 gap-2 content-center flex-1">
+            {[
+              { name: 'JavaScript', slug: 'javascript' },
+              { name: 'React', slug: 'react' },
+              { name: 'Python', slug: 'python' },
+              { name: 'Django', slug: 'django' },
+              { name: 'PostgreSQL', slug: 'postgresql' },
+              { name: 'Astro', slug: 'astro' },
+            ].map(tool => (
+              <div class="flex items-center justify-center p-2 bg-light/5 rounded-xl border border-light/10 hover:border-secondary/40 transition-all aspect-square" title={tool.name}>
+                <img
+                  src={`https://cdn.simpleicons.org/${tool.slug}/299f93`}
+                  alt={tool.name}
+                  class="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
 
   </div>
 
   <!-- Quick Links Footer -->
-  <div class="relative z-10 max-w-7xl mx-auto flex items-center gap-8 pt-16 mt-16 border-t border-light/[0.08]">
+  <div class="relative z-10 max-w-7xl mx-auto px-8 flex items-center gap-8 pt-12 mt-12 border-t border-light/[0.08]">
     <span class="text-light/20 text-[0.65rem] uppercase tracking-[0.3em] font-bold">Quick Links</span>
     <div class="flex gap-6">
       {[
@@ -195,21 +173,21 @@ const skills = ['React', 'PHP(Laravel)', 'Node.js', 'TypeScript', 'PostgreSQL', 
   const btnHero = document.getElementById('reveal-email-hero');
   const emailDisplayHero = document.getElementById('email-display-hero');
   const revealIconHero = document.getElementById('reveal-icon-hero');
-  
-  const u = ["n", "a", "t", "h", "a", "n"].join("");
-  const d = ["k", "i", "g", "e", "n", "n", ".", "d", "e", "v"].join(""); 
+
+  const u = ["k", "i", "b", "e", "t", "n", "a", "t"].join("");
+  const d = ["g", "m", "a", "i", "l", ".", "c", "o", "m"].join("");
 
   let revealedHero = false;
 
   btnHero?.addEventListener('click', () => {
     const fullEmail = `${u}@${d}`;
-    
+
     if (!revealedHero) {
       if (emailDisplayHero) {
         emailDisplayHero.innerText = fullEmail;
         emailDisplayHero.classList.add('text-primary', 'font-bold');
       }
-      
+
       if (revealIconHero) {
         revealIconHero.innerHTML = `
           <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -223,7 +201,7 @@ const skills = ['React', 'PHP(Laravel)', 'Node.js', 'TypeScript', 'PostgreSQL', 
 
       setTimeout(() => {
         if (emailDisplayHero) {
-          emailDisplayHero.innerText = "na...[at]...dev";
+          emailDisplayHero.innerText = "ki...[at]...com";
           emailDisplayHero.classList.remove('text-primary', 'font-bold');
         }
         if (revealIconHero) {
