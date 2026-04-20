@@ -24,6 +24,19 @@ const { title = "Kigen Dev" } = Astro.props;
     </script>
   </head>
   <body>
+    <!-- Loading screen -->
+    <div id="loader" class="loader">
+      <div class="loader-inner">
+        <svg class="loader-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="loader-letter loader-n" d="M2 56V8h8l14 30V8h7v48H24L10 26v30H2Z" />
+          <path class="loader-letter loader-k" d="M35 8h7v20l11-20h8L50 28l12 28h-8L43 34v22h-8V8Z" />
+        </svg>
+        <div class="loader-bar-track">
+          <div class="loader-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+
     <Navbar />
     <slot />
     <Footer />
@@ -42,5 +55,83 @@ const { title = "Kigen Dev" } = Astro.props;
         });
       });
     </script>
+
+    <script is:inline>
+      window.addEventListener("load", function () {
+        var loader = document.getElementById("loader");
+        if (loader) {
+          loader.classList.add("loader-done");
+          setTimeout(function () { loader.remove(); }, 800);
+        }
+      });
+    </script>
   </body>
 </html>
+
+<style>
+  .loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--color-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  .loader-done {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .loader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .loader-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .loader-letter {
+    fill: var(--color-primary);
+  }
+
+  .loader-n {
+    animation: letterFade 1.2s ease infinite alternate;
+  }
+
+  .loader-k {
+    animation: letterFade 1.2s ease 0.3s infinite alternate;
+  }
+
+  @keyframes letterFade {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+  }
+
+  .loader-bar-track {
+    width: 120px;
+    height: 2px;
+    background: rgba(247, 249, 251, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .loader-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--color-primary);
+    border-radius: 2px;
+    animation: barFill 1.5s ease forwards;
+  }
+
+  @keyframes barFill {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+</style>
