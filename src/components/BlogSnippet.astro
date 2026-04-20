@@ -1,0 +1,66 @@
+---
+const modules = import.meta.glob('../blogs/*.md', { eager: true });
+const posts = Object.entries(modules)
+  .map(([path, mod]: [string, any]) => ({
+    slug: path.split('/').pop()!.replace('.md', ''),
+    ...mod.frontmatter,
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 3);
+---
+
+<section class="bg-dark border-t border-light/[0.08]">
+  <div class="max-w-7xl mx-auto px-8 pt-24 pb-32">
+
+    <!-- Header -->
+    <div class="flex items-end justify-between mb-12">
+      <div>
+        <p class="text-[var(--color-secondary)] text-[0.65rem] uppercase tracking-[0.4em] font-bold mb-2">From the blog</p>
+        <h2 class="font-display text-7xl text-light uppercase tracking-tighter leading-none">Writing</h2>
+      </div>
+      <a
+        href="/blog"
+        class="group inline-flex items-center gap-2 text-[var(--color-secondary)] hover:text-[var(--color-primary)] font-semibold text-sm transition-colors pb-1"
+      >
+        All posts
+        <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+      </a>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.map((post) => (
+        <a
+          href={`/blog/${post.slug}`}
+          class="group flex flex-col border border-[var(--color-light)]/[0.08] rounded-2xl p-7 hover:border-[var(--color-primary)]/30 hover:bg-[var(--color-light)]/[0.02] transition-all"
+        >
+          <div class="flex items-center gap-2 flex-wrap mb-4">
+            {post.tags?.slice(0, 2).map((tag: string) => (
+              <span class="text-[0.6rem] font-black uppercase tracking-widest text-[var(--color-secondary)] border border-[var(--color-secondary)]/30 px-2.5 py-1 rounded-lg">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <h3 class="font-display text-2xl text-[var(--color-light)] group-hover:text-[var(--color-primary)] transition-colors leading-tight mb-3 flex-1">
+            {post.title}
+          </h3>
+
+          <p class="text-[var(--color-secondary)] text-base leading-relaxed line-clamp-3 mb-6">
+            {post.description}
+          </p>
+
+          <div class="flex items-center justify-between mt-auto">
+            <p class="text-[var(--color-secondary)] text-xs font-mono uppercase tracking-widest">
+              {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+            </p>
+            <span class="text-[var(--color-primary)] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-sm font-bold">
+              Read →
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>

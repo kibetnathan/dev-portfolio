@@ -1,0 +1,141 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const modules = import.meta.glob('../../blogs/*.md', { eager: true });
+  return Object.entries(modules).map(([path, mod]: [string, any]) => ({
+    params: { slug: path.split('/').pop()!.replace('.md', '') },
+    props: { mod },
+  }));
+}
+
+const { mod } = Astro.props;
+const { title, date, tags, description } = mod.frontmatter;
+const Content = mod.default;
+
+const formattedDate = new Date(date).toLocaleDateString('en-GB', {
+  day: 'numeric', month: 'long', year: 'numeric',
+});
+---
+
+<BaseLayout title={`${title} | Kigen Dev`}>
+  <!-- Header -->
+  <section class="bg-[var(--color-dark)] pt-32 pb-12 px-6 border-b border-[var(--color-light)]/[0.08]">
+    <div class="max-w-3xl mx-auto">
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-2 text-[var(--color-secondary)] hover:text-[var(--color-primary)] text-sm font-semibold transition-colors mb-10 group"
+      >
+        <span class="group-hover:-translate-x-0.5 transition-transform">←</span>
+        All posts
+      </a>
+
+      <div class="flex items-center gap-3 flex-wrap mb-6">
+        {tags?.map((tag: string) => (
+          <span class="text-[0.6rem] font-black uppercase tracking-widest text-[var(--color-secondary)] border border-[var(--color-secondary)]/30 px-2.5 py-1 rounded-lg">
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <h1 class="font-[var(--font-display)] text-5xl md:text-7xl text-[var(--color-light)] leading-none mb-6">
+        {title}
+      </h1>
+
+      <p class="text-[var(--color-secondary)] text-lg mb-8">{description}</p>
+
+      <p class="text-[var(--color-secondary)] text-xs font-mono uppercase tracking-widest">
+        {formattedDate}
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <article class="bg-[var(--color-dark)] px-6 py-16">
+    <div class="max-w-3xl mx-auto prose-blog">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .prose-blog :global(p) {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .prose-blog :global(h2) {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: var(--color-light);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .prose-blog :global(h3) {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    color: var(--color-light);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-blog :global(strong) {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .prose-blog :global(ol),
+  .prose-blog :global(ul) {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-light);
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose-blog :global(ol) { list-style-type: decimal; }
+  .prose-blog :global(ul) { list-style-type: disc; }
+  .prose-blog :global(li) { margin-bottom: 0.5rem; }
+
+  .prose-blog :global(a) {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .prose-blog :global(a:hover) { color: var(--color-primary); }
+
+  .prose-blog :global(blockquote) {
+    border-left: 3px solid var(--color-primary);
+    padding-left: 1.25rem;
+    color: var(--color-secondary);
+    font-style: italic;
+    margin: 2rem 0;
+  }
+
+  .prose-blog :global(code) {
+    font-family: monospace;
+    background: rgba(247, 249, 251, 0.05);
+    border: 1px solid rgba(247, 249, 251, 0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--color-accent);
+  }
+
+  .prose-blog :global(hr) {
+    border: none;
+    border-top: 1px solid rgba(247, 249, 251, 0.08);
+    margin: 3rem 0;
+  }
+</style>
