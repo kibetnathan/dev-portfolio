@@ -52,8 +52,6 @@ export default function Hero() {
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(247,249,251,0.07) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'repeating-linear-gradient(45deg, var(--color-primary) 0, var(--color-primary) 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
-      <div className="absolute top-32 right-1/4 w-72 h-72 bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/3 w-96 h-64 bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 grid grid-cols-12 gap-6 items-stretch">
@@ -82,13 +80,13 @@ export default function Hero() {
               <h1 className="font-display text-6xl text-light leading-[0.9] uppercase tracking-tight">
                 NATHAN<br /><span className="text-primary">KIBET</span>
               </h1>
-              <p className="text-light/40 text-[0.65rem] tracking-[0.3em] uppercase font-bold mt-3">Full Stack Developer</p>
+              <p className="text-[var(--color-secondary)] text-[0.65rem] tracking-[0.3em] uppercase font-bold mt-3">Full Stack Developer</p>
             </div>
 
             {/* Email reveal */}
             <button
               onClick={handleEmailClick}
-              className="group/email w-full flex items-center justify-center gap-2 px-5 py-3 bg-light/5 border border-light/10 rounded-2xl text-light/50 hover:text-primary hover:border-primary/30 transition-all text-sm font-mono cursor-pointer"
+              className="group/email w-full flex items-center justify-center gap-2 px-5 py-3 bg-light/5 border border-light/10 rounded-2xl text-[var(--color-secondary)] hover:text-primary hover:border-primary/30 transition-all text-sm font-mono cursor-pointer"
             >
               <span className={emailRevealed ? 'text-primary font-bold' : ''}>
                 {emailRevealed ? `${u}@${d}` : 'na...[at]...dev'}
@@ -112,7 +110,7 @@ export default function Hero() {
               <a href="#contact" className="flex-1 text-center bg-primary text-dark text-xs font-black py-3 rounded-xl hover:bg-primary/90 transition-all uppercase tracking-wider shadow-lg shadow-primary/25">
                 Get in Touch
               </a>
-              <a href="/Nathan_Kibet_CV.pdf" download className="flex-1 text-center border border-light/15 text-light/60 hover:text-light hover:border-light/30 text-xs font-bold py-3 rounded-xl transition-all uppercase tracking-wider">
+              <a href="/Nathan_Kibet_CV.pdf" download className="flex-1 text-center border border-light/15 text-[var(--color-light)] hover:border-primary/40 hover:text-primary text-xs font-bold py-3 rounded-xl transition-all uppercase tracking-wider">
                 Resume ↗
               </a>
             </div>
@@ -138,9 +136,9 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ ...spring, delay: 0.25 }}
             >
-              <p className="text-light/20 text-[0.65rem] uppercase tracking-widest font-bold">Based in</p>
-              <p className="text-light font-semibold">Nairobi, Kenya 🇰🇪</p>
-              <p className="text-light/40 text-xs">Open for Global Opportunities</p>
+              <p className="text-[var(--color-secondary)] text-[0.65rem] uppercase tracking-widest font-bold">Based in</p>
+              <p className="text-[var(--color-light)] font-semibold">Nairobi, Kenya 🇰🇪</p>
+              <p className="text-[var(--color-secondary)] text-xs">Open for Global Opportunities</p>
             </motion.div>
           </div>
 
@@ -154,7 +152,7 @@ export default function Hero() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ ...spring, delay: 0.3 }}
             >
-              <p className="text-light/60 text-lg leading-relaxed">
+              <p className="text-[var(--color-light)] text-xl leading-relaxed">
                 Building <span className="text-primary font-semibold">scalable web solutions</span> with clean architecture.
                 Strong focus on visual development, documentation, and adapting fast to new tooling.
               </p>
@@ -174,7 +172,7 @@ export default function Hero() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ ...spring, delay: 0.4 }}
             >
-              <p className="text-light/30 text-[0.65rem] uppercase tracking-widest font-bold">Tech Stack</p>
+              <p className="text-[var(--color-secondary)] text-[0.65rem] uppercase tracking-widest font-bold">Tech Stack</p>
               <div className="grid grid-cols-3 gap-2 content-center flex-1">
                 {techStack.map(tool => (
                   <div key={tool.slug} className="flex items-center justify-center p-2 bg-light/5 rounded-xl border border-light/10 hover:border-secondary/40 transition-all aspect-square" title={tool.name}>
@@ -206,10 +204,10 @@ export default function Hero() {
       transition={{ ...spring, delay: 0.55 }}
     >
       <div className="max-w-7xl mx-auto px-8 flex items-center gap-8 py-4 border-t border-light/[0.08]">
-        <span className="text-light/20 text-[0.65rem] uppercase tracking-[0.3em] font-bold">Quick Links</span>
+        <span className="text-[var(--color-secondary)] text-[0.65rem] uppercase tracking-[0.3em] font-bold">Quick Links</span>
         <div className="flex gap-6">
           {quickLinks.map(link => (
-            <a key={link.label} href={link.href} className="group flex items-center gap-1.5 text-light/40 hover:text-secondary text-sm font-semibold transition-colors">
+            <a key={link.label} href={link.href} className="group flex items-center gap-1.5 text-[var(--color-light)] hover:text-secondary text-sm font-semibold transition-colors">
               {link.label}
               <span className="text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all">↗</span>
             </a>

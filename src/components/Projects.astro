@@ -62,35 +62,28 @@ const projects = [
 
 <section id="projects" class="relative bg-dark overflow-hidden">
 
-  <!-- Background glows -->
-  <div class="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2"></div>
-  <div class="absolute top-1/2 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2"></div>
-
   <!-- Section header -->
   <div class="relative z-10 max-w-7xl mx-auto px-8 pt-24 pb-12 flex items-end justify-between">
     <div>
-      <p class="text-light/20 text-[0.65rem] uppercase tracking-[0.4em] font-bold mb-2">Selected Work</p>
+      <p class="text-[var(--color-secondary)] text-[0.65rem] uppercase tracking-[0.4em] font-bold mb-2">Selected Work</p>
       <h2 class="font-display text-7xl text-light uppercase tracking-tighter leading-none">PROJECTS</h2>
     </div>
-    <p class="text-light/30 text-sm max-w-xs text-right pb-1">
+    <p class="text-[var(--color-secondary)] text-base max-w-xs text-right pb-1">
       Things I've built — from capstone projects to side experiments.
     </p>
   </div>
 
-  <!-- Cards: full-width, flush, divided by horizontal borders -->
+  <!-- Cards -->
   <div class="relative z-10 border-t border-light/[0.08]">
     {projects.map((project) => (
       <div class={`flex items-stretch border-b border-light/[0.08] min-h-[320px] ${project.slug === 'wip' ? 'opacity-50 hover:opacity-70 transition-opacity' : ''} ${project.inverted ? 'flex-row-reverse' : ''}`}>
 
         <!-- Visual side -->
         <div class={`relative w-1/2 shrink-0 bg-gradient-to-br ${project.visual.gradient} flex items-center justify-center overflow-hidden`}>
-          <!-- Dot grid -->
           <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(247,249,251,0.05) 1px, transparent 1px); background-size: 20px 20px;"></div>
-          <!-- Monogram watermark -->
           <span class={`absolute font-display text-[14rem] leading-none select-none pointer-events-none ${project.visual.monogramColor} tracking-tighter`}>
             {project.visual.monogram}
           </span>
-          <!-- Label -->
           <div class="relative z-10 text-center px-12">
             <p class="text-[0.6rem] uppercase tracking-[0.4em] font-bold mb-3" style={`color: ${project.visual.accentVar}`}>
               {project.status}
@@ -107,10 +100,9 @@ const projects = [
         <!-- Description side -->
         <div class="w-1/2 shrink-0 px-14 py-12 flex flex-col justify-between gap-6">
           <div class="space-y-5">
-            <!-- Name + status -->
             <div class="flex items-start justify-between gap-4">
               <div>
-                <p class="text-light/30 text-[0.65rem] uppercase tracking-widest font-bold mb-1.5">{project.subtitle}</p>
+                <p class="text-[var(--color-secondary)] text-[0.65rem] uppercase tracking-widest font-bold mb-1.5">{project.subtitle}</p>
                 <h3 class="font-display text-5xl text-light uppercase tracking-tight leading-none">{project.name}</h3>
               </div>
               <span class={`shrink-0 mt-1 flex items-center gap-1.5 text-[0.6rem] font-black uppercase tracking-widest px-3 py-1.5 rounded-full border ${
@@ -123,18 +115,17 @@ const projects = [
               </span>
             </div>
 
-            <p class="text-light/50 text-base leading-relaxed max-w-lg">{project.description}</p>
+            <p class="text-[var(--color-light)] text-lg leading-relaxed max-w-lg">{project.description}</p>
 
             {project.tags.length > 0 && (
               <div class="flex flex-wrap gap-2">
                 {project.tags.map(tag => (
-                  <span class="text-light/30 border border-light/[0.08] text-xs px-3 py-1 rounded-lg font-medium">{tag}</span>
+                  <span class="text-[var(--color-secondary)] border border-light/[0.08] text-xs px-3 py-1 rounded-lg font-medium">{tag}</span>
                 ))}
               </div>
             )}
           </div>
 
-          <!-- CTA -->
           <div>
             {project.link ? (
               <a
@@ -158,7 +149,7 @@ const projects = [
                 <span class="group-hover/link:translate-x-0.5 transition-transform">→</span>
               </a>
             ) : (
-              <span class="text-light/20 text-sm font-bold uppercase tracking-wider">Not yet available</span>
+              <span class="text-[var(--color-secondary)] text-sm font-bold uppercase tracking-wider">Not yet available</span>
             )}
           </div>
         </div>

@@ -20,6 +20,9 @@ body {
 html.light {
   --color-dark: #f7f9fb;
   --color-light: #0e1117;
+  --color-primary: #c93b39;
+  --color-secondary: #1f9087;
+  --color-accent: #b87c00;
 }
 
 html.theme-transition,
