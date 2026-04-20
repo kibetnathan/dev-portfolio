@@ -15,8 +15,8 @@ const techStack = [
 const quickLinks = [
   { label: 'Projects', href: '#projects' },
   { label: 'Blog', href: '/blog' },
-  { label: 'GitHub', href: 'https://github.com' },
-  { label: 'LinkedIn', href: 'https://linkedin.com' },
+  { label: 'GitHub', href: 'https://github.com/kibetnathan' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nathan-kibet-ab19ba315/' },
 ];
 
 const spring = { type: 'spring', stiffness: 80, damping: 20 };
