@@ -11,4 +11,59 @@ import BlogSnippet from "../components/BlogSnippet.astro";
   <About />
   <Projects />
   <BlogSnippet />
+
+  <div class="scroll-progress"></div>
 </BaseLayout>
+
+<script>
+  const sections = document.querySelectorAll("[data-scroll-section]");
+  const progressBar = document.querySelector(".scroll-progress") as HTMLElement;
+
+  function onScroll() {
+    // Progress bar
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    const progress = scrollTop / (scrollHeight - clientHeight);
+    if (progressBar) {
+      progressBar.style.transform = `scaleX(${progress})`;
+    }
+
+    // Per-heading parallax
+    const vh = window.innerHeight;
+    document.querySelectorAll("[data-parallax]").forEach((heading) => {
+      const el = heading as HTMLElement;
+      const rect = el.getBoundingClientRect();
+      const progress = 1 - (rect.top + vh) / (vh + rect.offsetHeight);
+      const clamped = Math.max(0, Math.min(1, progress));
+      const y = -200 + clamped * 400;
+      el.style.transform = `translateY(${y}px)`;
+      el.style.willChange = "transform";
+    });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+</script>
+
+<style is:global>
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  [data-scroll-section] {
+    min-height: 100vh;
+    scroll-snap-align: start;
+  }
+
+  .scroll-progress {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-primary);
+    bottom: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+    z-index: 100;
+    pointer-events: none;
+  }
+</style>

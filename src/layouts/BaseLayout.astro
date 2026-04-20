@@ -14,7 +14,6 @@ const { title = "Kigen Dev" } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -28,5 +27,20 @@ const { title = "Kigen Dev" } = Astro.props;
     <Navbar />
     <slot />
     <Footer />
+
+    <script>
+      const u = ["k","i","b","e","t","n","a","t"].join("");
+      const d = ["g","m","a","i","l",".","c","o","m"].join("");
+
+      document.querySelectorAll("[data-copy-email]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          navigator.clipboard.writeText(`${u}@${d}`);
+          const el = btn as HTMLElement;
+          const original = el.textContent;
+          el.textContent = "Copied!";
+          setTimeout(() => { el.textContent = original; }, 2000);
+        });
+      });
+    </script>
   </body>
 </html>

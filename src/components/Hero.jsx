@@ -28,7 +28,6 @@ export default function Hero() {
   const [emailRevealed, setEmailRevealed] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const sentinelRef = useRef(null);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsSticky(!entry.isIntersecting),
@@ -47,7 +46,7 @@ export default function Hero() {
 
   return (
     <>
-    <section className="relative bg-dark overflow-hidden py-32">
+    <section data-scroll-section className="relative bg-dark overflow-hidden py-32">
 
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(247,249,251,0.07) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
@@ -107,9 +106,18 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="flex gap-3 w-full mt-auto">
-              <a href="#contact" className="flex-1 text-center bg-primary text-dark text-xs font-black py-3 rounded-xl hover:bg-primary/90 transition-all uppercase tracking-wider shadow-lg shadow-primary/25">
+              <button
+                onClick={() => {
+                  const email = `${u}@${d}`;
+                  navigator.clipboard.writeText(email);
+                  const btn = document.getElementById('hero-contact-btn');
+                  if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Get in Touch', 2000); }
+                }}
+                id="hero-contact-btn"
+                className="flex-1 text-center bg-primary text-dark text-xs font-black py-3 rounded-xl hover:bg-primary/90 transition-all uppercase tracking-wider shadow-lg shadow-primary/25 cursor-pointer"
+              >
                 Get in Touch
-              </a>
+              </button>
               <a href="/Nathan_Kibet_CV.pdf" download className="flex-1 text-center border border-light/15 text-[var(--color-light)] hover:border-primary/40 hover:text-primary text-xs font-bold py-3 rounded-xl transition-all uppercase tracking-wider">
                 Resume ↗
               </a>
@@ -123,6 +131,7 @@ export default function Hero() {
           {/* Headline row */}
           <div className="flex items-end justify-between">
             <motion.h2
+              data-parallax
               className="font-display text-[9rem] leading-[0.85] text-light uppercase tracking-tighter select-none whitespace-nowrap"
               initial={{ y: -30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
