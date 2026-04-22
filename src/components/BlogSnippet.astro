@@ -9,14 +9,14 @@ const posts = Object.entries(modules)
   .slice(0, 3);
 ---
 
-<section data-scroll-section class="bg-dark border-t border-light/[0.08]">
-  <div class="max-w-7xl mx-auto px-8 pt-24 pb-32">
+<section data-scroll-section aria-labelledby="writing-heading" class="bg-dark border-t border-light/[0.08]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-20 sm:pb-32">
 
     <!-- Header -->
-    <div class="flex items-end justify-between mb-12">
+    <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 sm:mb-12 gap-4">
       <div>
         <p class="text-[var(--color-secondary)] text-[0.65rem] uppercase tracking-[0.4em] font-bold mb-2">From the blog</p>
-        <h2 data-parallax class="font-display text-7xl text-light uppercase tracking-tighter leading-none">Writing</h2>
+        <h2 id="writing-heading" data-parallax class="font-display text-5xl sm:text-6xl lg:text-7xl text-light uppercase tracking-tighter leading-none">Writing</h2>
       </div>
       <a
         href="/blog"

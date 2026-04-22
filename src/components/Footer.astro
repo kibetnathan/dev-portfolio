@@ -23,12 +23,12 @@ const socials = [
 ---
 
 <footer class="bg-dark border-t border-light/[0.08]">
-  <div class="max-w-7xl mx-auto px-8 py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
 
-    <div class="grid grid-cols-12 gap-8 pb-12 border-b border-light/[0.06]">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 sm:pb-12 border-b border-light/[0.06]">
 
       <!-- Logo + tagline -->
-      <div class="col-span-5 flex flex-col gap-4">
+      <div class="md:col-span-5 flex flex-col gap-4">
         <a href="/" class="signature font-signature text-5xl text-primary leading-none select-none hover:scale-105 transition-transform inline-block w-fit">
           Kigen
         </a>
@@ -50,10 +50,10 @@ const socials = [
       </div>
 
       <!-- Spacer -->
-      <div class="col-span-1" />
+      <div class="hidden md:block md:col-span-1" aria-hidden="true" />
 
       <!-- Navigation -->
-      <div class="col-span-3">
+      <nav class="md:col-span-3" aria-label="Footer">
         <p class="text-[var(--color-secondary)] text-[0.65rem] uppercase tracking-[0.3em] font-bold mb-4">Navigation</p>
         <ul class="space-y-2.5">
           {nav.map(link => (
@@ -65,10 +65,10 @@ const socials = [
             </li>
           ))}
         </ul>
-      </div>
+      </nav>
 
       <!-- Availability -->
-      <div class="col-span-3">
+      <div class="md:col-span-3">
         <p class="text-[var(--color-secondary)] text-[0.65rem] uppercase tracking-[0.3em] font-bold mb-4">Status</p>
         <div class="space-y-3">
           <div class="flex items-center gap-2">
@@ -77,7 +77,9 @@ const socials = [
           </div>
           <p class="text-[var(--color-secondary)] text-sm leading-relaxed">Open to full-time roles and freelance projects globally.</p>
           <button
+            type="button"
             data-copy-email
+            aria-label="Copy email address to clipboard"
             class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-primary/80 uppercase tracking-wider transition-colors group cursor-pointer"
           >
             Get in touch
@@ -89,7 +91,7 @@ const socials = [
     </div>
 
     <!-- Bottom bar -->
-    <div class="pt-6 flex items-center justify-between">
+    <div class="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
       <p class="text-[var(--color-secondary)] text-xs">
         © {year} Nathan Kibet. All rights reserved.
       </p>

@@ -14,7 +14,7 @@ const { title = "Kigen Dev" } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <script is:inline>
@@ -24,21 +24,27 @@ const { title = "Kigen Dev" } = Astro.props;
     </script>
   </head>
   <body>
+    <!-- Skip link for keyboard/screen-reader users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Loading screen -->
-    <div id="loader" class="loader">
+    <div id="loader" class="loader" role="status" aria-live="polite" aria-label="Loading page">
       <div class="loader-inner">
-        <svg class="loader-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="loader-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
           <path class="loader-letter loader-n" d="M2 56V8h8l14 30V8h7v48H24L10 26v30H2Z" />
           <path class="loader-letter loader-k" d="M35 8h7v20l11-20h8L50 28l12 28h-8L43 34v22h-8V8Z" />
         </svg>
-        <div class="loader-bar-track">
+        <div class="loader-bar-track" aria-hidden="true">
           <div class="loader-bar-fill"></div>
         </div>
+        <span class="sr-only">Loading…</span>
       </div>
     </div>
 
     <Navbar />
-    <slot />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
     <Footer />
 
     <script>
@@ -69,6 +75,65 @@ const { title = "Kigen Dev" } = Astro.props;
 </html>
 
 <style>
+  /* Screen-reader-only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Skip link — visible only when focused */
+  .skip-link {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -120%);
+    z-index: 10000;
+    background: var(--color-primary);
+    color: var(--color-dark);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 0 0.75rem 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+  .skip-link:focus {
+    transform: translate(-50%, 0);
+    outline: 2px solid var(--color-light);
+    outline-offset: 2px;
+  }
+
+  /* Keyboard focus visibility */
+  :global(a:focus-visible),
+  :global(button:focus-visible),
+  :global([role="button"]:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  main:focus {
+    outline: none;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   .loader {
     position: fixed;
     inset: 0;

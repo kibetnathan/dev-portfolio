@@ -28,10 +28,10 @@ const otherSkills = [
 ];
 ---
 
-<section id="about" data-scroll-section class="relative pt-32 pb-16 bg-dark overflow-hidden">
+<section id="about" data-scroll-section aria-labelledby="about-heading" class="relative pt-24 sm:pt-32 pb-16 bg-dark overflow-hidden">
 
-  <div class="max-w-7xl mx-auto px-8 relative z-10">
-    <div class="grid grid-cols-12 gap-16 items-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-12 gap-8 lg:gap-16 items-center">
 
       <!-- Left: Picture & Layered Effect -->
       <div class="col-span-12 lg:col-span-5 relative group" data-animate="from-left">
@@ -41,7 +41,7 @@ const otherSkills = [
         <div class="relative rounded-2xl overflow-hidden aspect-[3/4] shadow-2xl border border-light/20 bg-dark">
           <img
             src="/full_body.png"
-            alt="Nathan Kibet"
+            alt="Full body portrait of Nathan Kibet"
             class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100 object-top"
           />
           <div class="absolute bottom-6 left-6 right-6 p-4 bg-dark/60 backdrop-blur-md border border-light/10 rounded-xl">
@@ -60,17 +60,17 @@ const otherSkills = [
         <div class="relative space-y-10">
 
           <div class="space-y-4">
-            <h2 data-parallax class="font-display text-7xl text-light leading-none uppercase tracking-tighter">
+            <h2 id="about-heading" data-parallax class="font-display text-5xl sm:text-6xl lg:text-7xl text-light leading-none uppercase tracking-tighter">
               Crafting <br />
               <span class="text-primary">Digital Excellence</span>
             </h2>
-            <div class="h-1.5 w-24 bg-primary rounded-full"></div>
-            <p class="text-[var(--color-light)] text-xl leading-relaxed font-medium">
+            <div class="h-1.5 w-24 bg-primary rounded-full" aria-hidden="true"></div>
+            <p class="text-[var(--color-light)] text-lg sm:text-xl leading-relaxed font-medium">
               I am a results-driven Full Stack Developer with a deep-seated passion for architecting
               scalable, high-performance web applications. My expertise lies in bridging the gap between
               complex backend logic and intuitive, visually stunning frontend experiences.
             </p>
-            <p class="text-[var(--color-secondary)] text-xl leading-relaxed">
+            <p class="text-[var(--color-secondary)] text-lg sm:text-xl leading-relaxed">
               With a strong foundation in <span class="text-[var(--color-light)] font-semibold">JavaScript, React, Python, and Django</span>,
               I specialize in building tools that aren't just functional, but are a joy to use. I thrive in
               environments that challenge me to solve intricate problems and push the boundaries of modern web standards.
@@ -78,11 +78,11 @@ const otherSkills = [
           </div>
 
           <div class="pt-6 border-t border-light/10">
-            <h3 class="font-display text-3xl text-light uppercase tracking-tight mb-4 flex items-center gap-3">
+            <h3 class="font-display text-2xl sm:text-3xl text-light uppercase tracking-tight mb-4 flex items-center gap-3">
                Beyond the Code
-               <span class="flex-grow h-px bg-light/10"></span>
+               <span class="flex-grow h-px bg-light/10" aria-hidden="true"></span>
             </h3>
-            <div class="grid grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                <div class="space-y-2">
                   <p class="text-primary font-bold text-xs uppercase tracking-widest">Interests</p>
                   <p class="text-[var(--color-light)] text-base leading-relaxed">
@@ -112,6 +112,8 @@ const otherSkills = [
              <div class="relative group">
                <button
                  id="reveal-email"
+                 type="button"
+                 aria-label="Reveal and copy email address"
                  class="flex flex-col items-start gap-1 px-6 py-3 bg-light/5 border border-light/10 rounded-2xl hover:border-primary/50 hover:bg-light/10 transition-all duration-300 group"
                >
                  <span class="text-[0.6rem] text-primary font-black uppercase tracking-[0.2em] mb-1">Contact Me</span>
@@ -137,17 +139,17 @@ const otherSkills = [
   </div>
 
   <!-- Skills Section -->
-  <div class="max-w-7xl mx-auto px-8 mt-24 relative z-10" data-animate>
-    <div class="bg-light/[0.02] border border-light/5 rounded-[40px] p-12 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-24 relative z-10" data-animate>
+    <div class="bg-light/[0.02] border border-light/5 rounded-3xl sm:rounded-[40px] p-6 sm:p-8 lg:p-12 relative overflow-hidden">
 
-      <div class="grid grid-cols-12 gap-12">
+      <div class="grid grid-cols-12 gap-8 lg:gap-12">
         <div class="col-span-12 lg:col-span-4">
           <div class="sticky top-8">
             <p class="text-primary text-[0.65rem] tracking-[0.4em] uppercase font-black mb-4 flex items-center gap-3">
               <span class="w-10 h-[2px] bg-primary/30"></span>
               Tech Stack
             </p>
-            <h2 class="font-display text-6xl text-light leading-[0.9] uppercase tracking-tighter mb-6">
+            <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl text-light leading-[0.9] uppercase tracking-tighter mb-6">
               THE TOOLS <br />
               <span class="text-primary/50">OF THE TRADE</span>
             </h2>
@@ -169,7 +171,9 @@ const otherSkills = [
                   <div class="p-3 bg-dark/50 rounded-2xl group-hover:scale-110 transition-transform">
                     <img
                       src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`}
-                      alt={skill.name}
+                      alt=""
+                      aria-hidden="true"
+                      loading="lazy"
                       class="w-8 h-8"
                     />
                   </div>
@@ -189,7 +193,9 @@ const otherSkills = [
                 <div class="flex items-center gap-2.5 px-5 py-2.5 bg-light/[0.03] border border-light/5 rounded-2xl hover:border-light/20 hover:bg-light/10 transition-all group cursor-default hover:-translate-y-0.5">
                   <img
                     src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color}`}
-                    alt={skill.name}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
                     class="w-4 h-4 grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
                   />
                   <span class="text-xs font-bold text-[var(--color-secondary)] group-hover:text-[var(--color-light)] transition-colors">{skill.name}</span>
@@ -203,8 +209,8 @@ const otherSkills = [
   </div>
 
   <!-- Education & Experience Section -->
-  <div class="max-w-7xl mx-auto px-8 mt-24 pb-24 relative z-10" data-animate>
-    <div class="grid grid-cols-12 gap-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-24 pb-16 sm:pb-24 relative z-10" data-animate>
+    <div class="grid grid-cols-12 gap-8 lg:gap-16">
 
       <div class="col-span-12 lg:col-span-6 space-y-10">
         <div>
@@ -212,7 +218,7 @@ const otherSkills = [
             <span class="w-10 h-[2px] bg-accent/30"></span>
             Professional Journey
           </p>
-          <h2 data-parallax class="font-display text-6xl text-light leading-none uppercase tracking-tighter">
+          <h2 data-parallax class="font-display text-4xl sm:text-5xl lg:text-6xl text-light leading-none uppercase tracking-tighter">
             Experience & <br />
             <span class="text-accent">Milestones</span>
           </h2>
@@ -263,20 +269,20 @@ const otherSkills = [
   </div>
 
   <!-- CTA -->
-  <div class="max-w-7xl mx-auto px-8 pb-32 relative z-10" data-animate>
-    <div class="relative bg-dark/50 backdrop-blur-xl border border-light/10 rounded-[40px] p-12 text-center space-y-8 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 sm:pb-32 relative z-10" data-animate>
+    <div class="relative bg-dark/50 backdrop-blur-xl border border-light/10 rounded-3xl sm:rounded-[40px] p-6 sm:p-10 lg:p-12 text-center space-y-6 sm:space-y-8 overflow-hidden">
       <div class="space-y-4">
-        <h2 class="font-display text-5xl md:text-6xl text-light uppercase tracking-tighter">
+        <h2 class="font-display text-3xl sm:text-5xl md:text-6xl text-light uppercase tracking-tighter">
           Let's Build Something <span class="text-primary">Exceptional</span>
         </h2>
-        <p class="text-[var(--color-secondary)] text-xl max-w-2xl mx-auto leading-relaxed">
+        <p class="text-[var(--color-secondary)] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
           I am always open to new opportunities to learn, grow, and provide innovative solutions to complex problems.
           Whether you have a project in mind or just want to discuss the future of tech, I'm all ears.
         </p>
       </div>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-        <button data-copy-email class="px-10 py-4 bg-primary text-dark font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white transition-all duration-300 cursor-pointer">
+        <button type="button" data-copy-email aria-label="Copy email address to clipboard" class="px-10 py-4 bg-primary text-dark font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white transition-all duration-300 cursor-pointer">
           Get in Touch
         </button>
         <span class="text-[var(--color-secondary)] font-display text-xl">OR</span>
